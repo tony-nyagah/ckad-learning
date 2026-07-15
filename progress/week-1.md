@@ -1,19 +1,13 @@
 # Progress Log
 
-## Week 1: Pods, Containers, Volumes (Jul 13–19)
+## Week 1: Pods, Containers, Volumes (Jul 15–21)
 
-### Mon Jul 13 — Setup + First Pods
+### Wed Jul 15 — Setup + First Pods
 - Created this repo
 - Created kind cluster (ckad, v1.33.1, ARM64)
 - First Pod: `kubectl run nginx --image=nginx --restart=Never`
 - Learned: `--restart=Never` is critical for bare Pods
 - Committed: nginx-pod.yaml, sidecar-nginx.yaml, init-container.yaml
-
-### Tue Jul 14
-- 
-
-### Wed Jul 15
-- 
 
 ### Thu Jul 16
 - 
