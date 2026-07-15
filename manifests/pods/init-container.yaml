@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: init-demo
+  labels:
+    app: init-demo
+spec:
+  initContainers:
+  - name: init-fetch
+    image: busybox
+    command: ['/bin/sh', '-c', 'echo "<h1>Hello from init container</h1>" > /workdir/index.html']
+    volumeMounts:
+    - name: shared-data
+      mountPath: /workdir
+  containers:
+  - name: nginx
+    image: nginx:alpine
+    volumeMounts:
+    - name: shared-data
+      mountPath: /usr/share/nginx/html
+  volumes:
+  - name: shared-data
+    emptyDir: {}
