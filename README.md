@@ -2,7 +2,7 @@
 
 > **Goal:** Pass the Certified Kubernetes Application Developer exam by September 2026.
 > **Status:** In progress — started July 15, 2026.
-> **Cluster:** kind (Kubernetes IN Docker), v1.33.1, ARM64, 4 CPU, 7.5 GiB RAM
+> **Cluster:** [kind](kind-config.yaml) (Kubernetes IN Docker), v1.32.2
 
 ## Why this exists
 

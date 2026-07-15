@@ -1,0 +1,26 @@
+# Made by running:
+# `kubectl run net-demo --image=nginx:alpine --restart-Never --dry-run=client -o yaml > net-demo.yaml`
+# After making changes to the YAML, saved it and applied it with:
+# `kubectl apply -f net-demo.yaml`
+# You have to delete the old pod first if you change the YAML file again:
+# `kubectl delete pod net-demo`
+
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: net-demo
+  name: net-demo
+spec:
+  containers:
+    - image: nginx:alpine
+      name: net-demo
+      resources: {}
+    - command: ["/bin/sh", "-c", "ping -c 3 localhost && sleep 3600"]
+      image: busybox
+      name: pinger
+      resources: {}
+
+  dnsPolicy: ClusterFirst
+  restartPolicy: Never
+status: {}

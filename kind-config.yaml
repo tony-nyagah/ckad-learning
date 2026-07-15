@@ -1,0 +1,20 @@
+# Create a kind cluster configuration
+# Run `kind create cluster --name ckad-learning --config kind-config.yaml`
+
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+  - role: control-plane
+    kubeadmConfigPatches:
+      - |
+        kind: InitConfiguration
+        nodeRegistration:
+          kubeletExtraArgs:
+            node-labels: "ingress-ready=true"
+    # extraPortMappings:  # Uncomment for Ingress testing (Week 3+)
+    # - containerPort: 80
+    #   hostPort: 80
+    #   protocol: TCP
+    # - containerPort: 443
+    #   hostPort: 443
+    #   protocol: TCP
